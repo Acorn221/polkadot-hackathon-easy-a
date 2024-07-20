@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { sendToBackground } from "@plasmohq/messaging";
 import icon from "data-base64:./icon.png";
 
 import "./style.css";
+import type { GetStatsRequest, GetStatsResponse } from "../background/messages/getStats";
 
 const IndexPopup = () => {
-  const [totalReactionCount, setTotalReactionCount] = useState<number | null>(
-    null,
-  );
   useEffect(() => {
+
+    sendToBackground<
+      GetStatsRequest,
+      GetStatsResponse
+    >({
+      name: "getStats",
+    })
+      .then((data) => {
+        console.log("Data returned", data);
+      })
+      .catch((e) => {
+        console.error("Error getting total reaction count", e);
+      });
   }, []);
 
   return (
@@ -18,13 +30,6 @@ const IndexPopup = () => {
 
       <h1 className="text-2xl">LinkedOut</h1>
       <p className="text-[1.2em]">Anonymous dislikes for LinkedIn</p>
-      {totalReactionCount && (
-        <>
-          <hr />
-          <p className="text-[1.2em]">Total LinkedOut reactions given:</p>
-          <div className="text-3xl">{totalReactionCount}</div>
-        </>
-      )}
       <hr />
       <a href="https://j4a.uk/" target="_blank" className="m-1 underline">
         By J4A Industries

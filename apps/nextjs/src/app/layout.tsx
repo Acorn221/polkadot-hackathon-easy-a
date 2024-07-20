@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
@@ -56,7 +55,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         )}
       >
         <MsClarity />
-        <GoogleTagManager gtmId={env.NEXT_PUBLIC_GTAG_MEASUREMENT_ID} />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TRPCReactProvider>{props.children}</TRPCReactProvider>
           <div className="fixed bottom-8 right-8 overflow-hidden">

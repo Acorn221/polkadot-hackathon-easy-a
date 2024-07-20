@@ -1,13 +1,14 @@
-import { createEnv } from "@t3-oss/env-core";
 import { z } from "zod";
 
-
-export const env = createEnv({
-  server: {
-		NODE_ENV: z
+const envSchema = z.object({
+  NODE_ENV: z
 		.enum(["development", "production", "test"])
 		.default("development"),
-  },
-  runtimeEnv: process.env,
-  emptyStringAsUndefined: true,
+  DATABASE_URL: z.string(),
 });
+
+// Validate `process.env` against our schema
+// and return the result
+export const env = envSchema.parse(process.env);
+
+// Export the result so we can use it in the project

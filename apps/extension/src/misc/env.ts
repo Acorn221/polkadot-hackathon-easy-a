@@ -7,6 +7,7 @@ const envSchema = z.object({
   NODE_ENV: z
 		.enum(["development", "production", "test"])
 		.default("development"),
+	PLASMO_PUBLIC_API_URL: z.string().url().optional().default('http://localhost:3000/api/trpc'),
   // ...
 });
 

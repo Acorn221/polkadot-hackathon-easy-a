@@ -45,3 +45,7 @@ keys.json
 
 *.crx
 .vscode/*
+apps/extension/node_modules/
+apps/nextjs/node_modules
+apps/
+
