@@ -27,7 +27,7 @@ export const postRouter = {
       }
       if(!api.query.timestamp) return;
 
-      const x = await api.query.timestamp.now();
+      // const x = await api.query.timestamp.now();
       const [
         lastBlock,
         finalizedBlock,
@@ -52,9 +52,9 @@ export const postRouter = {
       return {
         blockHeight: lastBlock.block.header.number.toNumber(),
         finalizedHeight: finalizedBlockHeader.number.toNumber(),
-        validatorCount: validators.toHuman(),
-        totalIssuance: totalIssuance?.toHuman(),
-        activeNominators: nominators?.toHuman(),
+        validatorCount: validators.toHuman() as string[],
+        totalIssuance: totalIssuance?.toHuman() as string[],
+        activeNominators: nominators?.toHuman() as string[],
       };
     }),
 } satisfies TRPCRouterRecord;
