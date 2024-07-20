@@ -1,0 +1,11 @@
+import baseConfig from "@linked-out/eslint-config/base";
+import reactConfig from "@linked-out/eslint-config/react";
+
+/** @type {import('typescript-eslint').Config} */
+export default [
+  {
+    ignores: [],
+  },
+  ...baseConfig,
+  ...reactConfig,
+];

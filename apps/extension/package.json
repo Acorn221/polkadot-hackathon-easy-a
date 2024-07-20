@@ -1,0 +1,85 @@
+{
+  "name": "@linked-out/extension",
+  "displayName": "LinkedOut - Dislikes for LinkedIn",
+  "version": "0.0.1",
+  "description": "Linkedout simply adds 💩 reaction buttons to LinkedIn posts.",
+  "author": "James",
+  "scripts": {
+    "dev": "pnpm with-dev-env plasmo dev",
+    "build": "pnpm with-prod-env plasmo build",
+    "build-firefox": "pnpm with-prod-env plasmo build --target=firefox",
+    "package": "pnpm with-prod-env plasmo package",
+    "clean": "git clean -xdf .next .turbo node_modules .plasmo",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "with-dev-env": "dotenv -e ../../.env -e ../../.env.local --",
+    "with-prod-env": "dotenv -e ../../.env.production -e ../../.env --",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@linked-out/api": "workspace:*",
+    "@linked-out/lib": "workspace:*",
+    "@linked-out/ui": "workspace:*",
+    "@plasmohq/messaging": "^0.6.2",
+    "@plasmohq/storage": "^1.10.0",
+    "@trpc/client": "11.0.0-rc.364",
+    "daisyui": "^4.10.2",
+    "plasmo": "^0.86.2",
+    "prettier": "^3.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "superjson": "2.2.1",
+    "uuid": "^9.0.1",
+    "uuidv4": "^6.2.13",
+    "webextension-polyfill": "^0.11.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@linked-out/db": "workspace:*",
+    "@linked-out/eslint-config": "workspace:*",
+    "@linked-out/prettier-config": "workspace:*",
+    "@linked-out/tailwind-config": "workspace:*",
+    "@linked-out/tsconfig": "workspace:*",
+    "@types/chrome": "0.0.210",
+    "@types/node": "^20.12.9",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@types/webextension-polyfill": "^0.10.7",
+    "autoprefixer": "10.4.13",
+    "dotenv-cli": "^7.4.2",
+    "eslint": "^9.2.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "prettier": "@linked-out/prettier-config",
+  "manifest": {
+    "host_permissions": [
+      "*://linkedin.com/*",
+      "*://www.linkedin.com/*"
+    ],
+    "permissions": [],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "/assets/james-arnott-is-the-dankest-memer.png"
+        ],
+        "matches": [
+          "*://linkedin.com/*",
+          "*://www.linkedin.com/*"
+        ]
+      }
+    ],
+    "externally_connectable": {
+      "matches": [
+        "*://linkedin.com/*",
+        "*://www.linkedin.com/*"
+      ]
+    },
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "firefox@linkedout.lol"
+      }
+    }
+  }
+}
