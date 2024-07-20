@@ -49,7 +49,7 @@ apps/extension/node_modules/
 apps/nextjs/node_modules
 apps/
 
-pnpm-lock.yaml
+
 apps/extension/node_modules/plasmo
 apps/extension/node_modules/tailwindcss
 apps/extension/node_modules/webextension-polyfill
@@ -64,7 +64,6 @@ apps/nextjs/node_modules/.bin/tailwind
 apps/nextjs/node_modules/.bin/tailwindcss
 apps/nextjs/node_modules/@next/third-parties
 apps/nextjs/node_modules/@trpc/react-query
-packages/api/package.json
 packages/api/node_modules/.bin/acorn
 packages/api/node_modules/.bin/eslint
 packages/api/node_modules/.bin/prettier

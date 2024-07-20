@@ -21,6 +21,7 @@
   "dependencies": {
     "@linked-out/db": "workspace:*",
     "@linked-out/validators": "workspace:*",
+    "@polkadot/api": "^12.2.1",
     "@trpc/server": "11.0.0-rc.364",
     "superjson": "2.2.1",
     "zod": "^3.23.8"
